@@ -31,11 +31,7 @@ const template = [
 ];
 
 const getJSON = async () => {
-  const result = await transform(xml, template);
-  console.log(result);
-
-  const prettyStr = await prettyPrint(xml, { indentSize: 4 });
-  console.log(prettyStr);
+  return await transform(xml, template);
 };
 
 module.exports = async (req, res) => {
