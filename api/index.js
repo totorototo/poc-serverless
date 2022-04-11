@@ -6,8 +6,14 @@ module.exports = async (req, res) => {
     if (file) {
       fs.readFile(file, "utf8", (err, data) => {
         if (!err) {
-          res.send(data);
+          res.status(200).json({
+            message: "job done",
+          });
         }
+      });
+    } else {
+      res.status(500).json({
+        message: "internal server error: file not found!",
       });
     }
   } catch (err) {
